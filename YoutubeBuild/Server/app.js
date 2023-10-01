@@ -3,7 +3,15 @@ const connectToDB = require('./config/db')
 
 const app = express()
 
+// middleware
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
 connectToDB()
+
+const userRoutes = require('./routes/user.routes')
+
+app.use('/', userRoutes)
 
 app.get('/', (req, res) => {
     res.send("<h1>Welcome to the server</h1>")
