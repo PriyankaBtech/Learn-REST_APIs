@@ -1,31 +1,10 @@
-const express = require('express')
+const app = require('./app.js')
 
-const app = express()
+const PORT = 8000
 
-app.get('/', (req, res) => {
-    res.send("<h1>Welcome to the server</h1>")
+app.listen(PORT, () => {
+    console.log(`server listen at port : ${PORT}`)
 })
-
-app.get('/home', (req, res) => {
-    res.send("<h1>You are at Home</h1>")
-})
-
-app.get('/about', (req, res) => {
-    res.json({
-        success : true,
-        name : "Priyanka",
-        message : "Hello Guys"
-    })
-})
-
-app.listen(4000, () => {
-    console.log("server listen at port 4000")
-})
-
-
-
-
-
 
 
 
